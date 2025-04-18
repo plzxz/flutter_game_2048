@@ -1,0 +1,42 @@
+[
+    {
+        "username": "kou007",
+        "score": 351
+    },
+    {
+        "username": "devX",
+        "score": 320
+    },
+    {
+        "username": "Alice",
+        "score": 300
+    },
+    {
+        "username": "Bob",
+        "score": 280
+    },
+    {
+        "username": "Zero",
+        "score": 270
+    },
+    {
+        "username": "Kai",
+        "score": 260
+    },
+    {
+        "username": "Zed",
+        "score": 250
+    },
+    {
+        "username": "Neo",
+        "score": 240
+    },
+    {
+        "username": "Trin",
+        "score": 230
+    },
+    {
+        "username": "Morpheus",
+        "score": 220
+    }
+]

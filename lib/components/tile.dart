@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_game_2048/components/grid.dart';
+import 'package:flutter_game_2048/theme/game_theme.dart';
+
+const double cornerRadius = 8.0;
+const double moveInterval = .5;
 
 class Tile {
   final int x;
@@ -117,14 +120,20 @@ class TileNumber extends StatelessWidget {
   const TileNumber(this.val, {required Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Text(
-    "$val",
-    style: TextStyle(
-      color: numTextColor[val],
-      fontSize: val > 512 ? 28 : 35,
-      fontWeight: FontWeight.w900,
-    ),
-  );
+  Widget build(BuildContext context) {
+    final gameTheme = Theme.of(context).extension<GameTheme>();
+
+    final textColor = gameTheme!.textColors[val] ?? Colors.white;
+    
+    return Text(
+      "$val",
+      style: TextStyle(
+        color: textColor,
+        fontSize: val > 512 ? 28 : 35,
+        fontWeight: FontWeight.w900,
+      ),
+    );
+  }
 }
 
 class BigButton extends StatelessWidget {
