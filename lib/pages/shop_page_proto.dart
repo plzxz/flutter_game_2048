@@ -76,7 +76,7 @@ class _ShopPageState extends State<ShopPage> {
     {
       "name": "Normal",
       "small_image": Colors.brown.shade200,
-      "image": 'normal.png',
+      "image": 'assets/images/normal.png',
       "id": 0,
       "points": 0,
       "owned": true,
@@ -84,7 +84,7 @@ class _ShopPageState extends State<ShopPage> {
     {
       "name": "Light",
       "small_image": Colors.white,
-      "image": 'light.png',
+      "image": 'assets/images/light.png',
       "id": 1,
       "points": 50,
       "owned": false,
@@ -92,7 +92,7 @@ class _ShopPageState extends State<ShopPage> {
     {
       "name": "Dark",
       "small_image": Colors.black,
-      "image": 'dark.png',
+      "image": 'assets/images/dark.png',
       "id": 2,
       "points": 500,
       "owned": false,
@@ -100,7 +100,7 @@ class _ShopPageState extends State<ShopPage> {
     {
       "name": "Blue",
       "small_image": Colors.blue,
-      "image": 'blue.png',
+      "image": 'assets/images/blue.png',
       "id": 3,
       "points": 100,
       "owned": false,
@@ -108,7 +108,7 @@ class _ShopPageState extends State<ShopPage> {
     {
       "name": "Crismas",
       "small_image": Colors.green,
-      "image": 'crismas.png',
+      "image": 'assets/images/crismas.png',
       "id": 4,
       "points": 30,
       "owned": false,

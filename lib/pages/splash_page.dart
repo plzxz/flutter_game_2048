@@ -43,7 +43,7 @@ class SplashScreenState extends State<SplashPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('splash_logo.png', width: 300),
+            Image.asset('assets/images/splash_logo.png', width: 300),
             SizedBox(height: 20),
             Text(
               '2048',

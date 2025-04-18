@@ -49,7 +49,7 @@ class MenuPageState extends State<MenuPage> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     alignment: Alignment.center,
-                    child: Image.asset('game_logo.png'),
+                    child: Image.asset('assets/images/game_logo.png'),
                   ),
 
                   // const SizedBox(height: 10),
