@@ -28,10 +28,11 @@ class ShopPageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gameTheme = Theme.of(context).extension<GameTheme>()!;
-    final controller = Provider.of<ShopController>(context);
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    final gameTheme = Theme.of(context).extension<GameTheme>()!;// ดึงธีมเกม
+    final controller = Provider.of<ShopController>(context);// เข้าถึง controller
+    final themeProvider = Provider.of<ThemeProvider>(context);// เข้าถึง theme provider
 
+  // ดูว่าอยู่แท็บไอเท็มไหม
     final isItemTab = controller.selectedTab == 0;
     final currentItem = controller.items[controller.selectedItemIndex];
     final currentTheme = controller.themes[controller.selectedThemeIndex];
@@ -70,8 +71,11 @@ class ShopPageContent extends StatelessWidget {
               ),
               const SizedBox(height: 45),
 
+              // ปุ่มเลือกแท็บ (ไอเท็ม / ธีม)
               ShopTabs(
+                // แท็บปัจจุบัน
                 selectedTab: controller.selectedTab,
+                // ฟังก์ชันเปลี่ยนแท็บ
                 onTabSelected: controller.selectTab,
                 activeColor: gameTheme.activeButton,
                 inactiveColor: gameTheme.inactiveButton,
@@ -82,7 +86,7 @@ class ShopPageContent extends StatelessWidget {
               Row(
                 children: [
                   const SizedBox(width: 50),
-                  Text("points: $points"),
+                  Text("points: $points"),// โชว์คะแนนผู้เล่น
                 ],
               ),
               const SizedBox(height: 10),
@@ -99,7 +103,7 @@ class ShopPageContent extends StatelessWidget {
                           color: gameTheme.lightText,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: ShopGrid(
+                        child: ShopGrid( // แสดงกริด
                           selectedTab: controller.selectedTab,
                           items: controller.items,
                           themes: controller.themes,
@@ -120,14 +124,14 @@ class ShopPageContent extends StatelessWidget {
                     const SizedBox(height: 40),
                     SizedBox(
                       height: 250,
-                      child: Container(
+                      child: Container(// กล่องแสดงรายละเอียด
                         margin: const EdgeInsets.symmetric(horizontal: 25),
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           color: gameTheme.lightText,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: ShopDetailPanel(
+                        child: ShopDetailPanel(// รายละเอียดของรายการที่เลือก
                           selectedTab: controller.selectedTab,
                           item: currentItem,
                           theme: currentTheme,
@@ -140,7 +144,7 @@ class ShopPageContent extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        ShopBuyButton(
+                        ShopBuyButton(// ปุ่มซื้อ/ติดตั้ง
                           label: isItemTab
                               ? "Buy"
                               : currentTheme.owned
@@ -176,6 +180,8 @@ class ShopPageContent extends StatelessWidget {
     );
   }
 
+
+  // ฟังก์ชันแสดงข้อความชั่วคราวด้านล่าง
   void _showSnackbar(BuildContext context, String msg) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(msg), duration: const Duration(seconds: 1)),

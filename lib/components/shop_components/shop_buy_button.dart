@@ -14,6 +14,7 @@ class ShopBuyButton extends StatelessWidget {
     required this.textColor,
   });
 
+  //สร้างปุ่ม
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
