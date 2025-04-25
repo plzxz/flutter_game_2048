@@ -24,6 +24,7 @@ class MenuPageState extends State<MenuPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Stack(
         children: [
+          //เสกหิมะ ถ้าเลือก them ที่ 4 คือ Chirsmas
           if(Provider.of<ThemeProvider>(context).selectTheme == 4)
           SnowFallAnimation(
             config: SnowfallConfig(
@@ -39,7 +40,6 @@ class MenuPageState extends State<MenuPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const SizedBox(height: 20),
-          
                   // Logo
                   Container(
                     width: 320,
@@ -48,7 +48,7 @@ class MenuPageState extends State<MenuPage> {
                       color: gameTheme.lightText,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    alignment: Alignment.center,
+                    //วางใว้ตรงกลางแล้วใส่ Logo                    alignment: Alignment.center,
                     child: Image.asset('assets/images/game_logo.png'),
                   ),
 
@@ -68,6 +68,7 @@ class MenuPageState extends State<MenuPage> {
                           Navigator.pushNamed(context, '/gamePage');
                         },
                       ),
+                      //Box ใว้ใส่ Leader board
                       const SizedBox(height: 20),
                       MenuButton(
                         label: "Leader board",
@@ -78,9 +79,11 @@ class MenuPageState extends State<MenuPage> {
                         height: 60,
                         width: 250,
                         onPressed: () {
+                          //ไปหน้า leader board Page
                           Navigator.pushNamed(context, '/boardPage');
                         },
                       ),
+                      //Box ใว้ใส่ Shop
                       const SizedBox(height: 20),
                       MenuButton(
                         label: "Shop",
@@ -91,6 +94,7 @@ class MenuPageState extends State<MenuPage> {
                         height: 60,
                         width: 220,
                         onPressed: () {
+                          //ไปหน้า shopPage
                           Navigator.pushNamed(context, '/shopPage');
                         },
                       ),
@@ -116,12 +120,15 @@ class MenuPageState extends State<MenuPage> {
                       horizontal: 16,
                       vertical: 10,
                     ),
+                    //สร้างแถวแนวยาว
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        //ใส่ปุ่มเครดิต
                         bottomIconButton(Icons.star_border, () {
                           Navigator.pushNamed(context, '/creditPage');
                         }),
+                        //ปุ่ม logout
                         bottomTextButton("logout"),
                       ],
                     ),
