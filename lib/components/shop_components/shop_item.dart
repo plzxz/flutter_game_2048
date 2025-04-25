@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//เก็บข้อมูลไอเทม
 class ShopItem {
   final String name;
   final IconData icon;

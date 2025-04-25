@@ -82,8 +82,10 @@ class ShopController extends ChangeNotifier {
     ),
   ];
 
+  //โหลดข้อมูล
   Future<void> loadData() async {
     final prefs = await SharedPreferences.getInstance();
+    //เช็คจำนวน
     points = prefs.getInt('points') ?? 0;
     itemSwap = prefs.getInt("item_swap") ?? 0;
     itemUndo = prefs.getInt("item_undo") ?? 0;
@@ -106,6 +108,7 @@ class ShopController extends ChangeNotifier {
     }
   }
 
+  //ฟังค์ชั่นซื้อไอเทม
   Future<void> buyItem(int index) async {
     final prefs = await SharedPreferences.getInstance();
     final item = items[index];
@@ -118,6 +121,7 @@ class ShopController extends ChangeNotifier {
     if (points < item.points) return;
 
     int count = getItemCount(item.name);
+    //จำนวนที่เก็บได้ของไอเทม
     int max = {"swap": 4, "undo": 8, "delete": 2}[item.name]!;
 
     if (count >= max) return;
@@ -135,6 +139,7 @@ class ShopController extends ChangeNotifier {
     notifyListeners();
   }
 
+  //ฟังค์ชั่นธีม
   Future<void> buyTheme(int index) async {
     final prefs = await SharedPreferences.getInstance();
     final theme = themes[index];
