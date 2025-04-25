@@ -27,9 +27,9 @@ class SplashScreenState extends State<SplashPage> {
 
     await Future.delayed(const Duration(seconds: 2));
     if(!mounted) return;
-
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
+          //เช็คว่า isLogin ว่าเป็น true/flase ถ้าเป็น True ให้ไปหน้า MenuPage() ถ้าไม่มี่ ก็ไปหน้า SignUpPage()
           builder: (_) => isLogin ? const MenuPage() : SignUpPage(),
         ),
       );

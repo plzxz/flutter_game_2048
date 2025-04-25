@@ -44,7 +44,7 @@ class LoginPageState extends State<LoginPage> {
 
     if (!context.mounted) return;
 
-    // Go to menu
+    // ไปที่ menu
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => const MenuPage()),
@@ -110,6 +110,7 @@ class LoginPageState extends State<LoginPage> {
                   hintText: 'Username',
                   obscureText: false,
                   validator: (value) {
+                    //เช็ค ว่าในช่องมันว่างมั้ยหรือไม่มีค่าไรเลย
                     if (value == null || value.isEmpty) {
                       return 'Please enter your username';
                     } else if (value.contains(';')) {
@@ -158,6 +159,7 @@ class LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
+                      //ข้อความ ไม่มีสามารชิก
                       'not a member?',
                       style: TextStyle(color: Colors.grey[700]),
                     ),

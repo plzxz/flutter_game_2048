@@ -42,6 +42,7 @@ class ShopPageContent extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Stack(
         children: [
+          //เสกหิมะ ถ้าเลือก them ที่ 4 คือ Chirsmas
           if (themeProvider.selectTheme == 4)
             SnowFallAnimation(
               config: SnowfallConfig(

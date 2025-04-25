@@ -11,6 +11,7 @@ class Credit extends StatefulWidget {
 }
 
 class credit extends State<Credit> {
+  //เก็บ list ของชื่อวิชาและชื่อคนในกลุ่ม
   final List<String> data = [
     'CSC452 Mobile programing',
     'Phongphit Thongchuenjit 6609684',
@@ -73,6 +74,7 @@ class credit extends State<Credit> {
                     alignment: Alignment.center,
                     child: Text(
                       data.join('\n\n'),
+                      //เรียนใช้ data ที่เก็บใว้ บรรทัดที่ 14 ให้มาวางใว้ที่ตรงนี้
                       maxLines: 10,
                       overflow: TextOverflow.visible,
                       textAlign: TextAlign.center,
