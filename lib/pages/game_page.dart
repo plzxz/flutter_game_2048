@@ -352,7 +352,7 @@ class GamePageState extends State<GamePage>
       } else {
         if (tile == firstSelectedTile) return;
 
-        // 🔧 Save state before switch
+        //  Save state before switch
         gameStates.add(GameState(
           grid.map((row) => row.map((tile) => tile.copy()).toList()).toList(),
           SwipeDirection.up,
@@ -369,11 +369,11 @@ class GamePageState extends State<GamePage>
 
           item_switch--;
           saveItems(); 
-          controller.forward(from: 0); // 🔧 Trigger visual update
+          controller.forward(from: 0); //  Trigger visual update
         });
       }
     } else if (currentAction == GameActionMode.removeSimilar) {
-      // 🔧 Save state before remove
+      //  Save state before remove
       gameStates.add(GameState(
         grid.map((row) => row.map((tile) => tile.copy()).toList()).toList(),
         SwipeDirection.up,
@@ -389,7 +389,7 @@ class GamePageState extends State<GamePage>
 
         --item_remove;
         saveItems(); 
-        controller.forward(from: 0); // 🔧 Trigger visual update
+        controller.forward(from: 0); //  Trigger visual update
       });
     }
   }

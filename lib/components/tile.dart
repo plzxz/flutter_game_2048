@@ -200,9 +200,9 @@ class Swiper extends StatelessWidget {
       }
     },
     onHorizontalDragEnd: (details) {
-      if (details.velocity.pixelsPerSecond.dx < -1000) {
+      if (details.velocity.pixelsPerSecond.dx < -250) {
         left();
-      } else if (details.velocity.pixelsPerSecond.dx > 1000) {
+      } else if (details.velocity.pixelsPerSecond.dx > 250) {
         right();
       }
     },

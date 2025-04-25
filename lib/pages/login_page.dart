@@ -32,7 +32,7 @@ class LoginPageState extends State<LoginPage> {
     if (!isValid) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Invalid username or password")),
+        const SnackBar(content: Text("Invalid username or password"), duration: Duration(seconds: 1),),
       );
       return;
     }

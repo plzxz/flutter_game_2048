@@ -32,7 +32,7 @@ class SignUpPageState extends State<SignUpPage> {
     final exists = await checkUsernameExists(username);
     if (exists) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Username already exists")),
+        const SnackBar(content: Text("Username already exists"),duration: Duration(seconds: 1),),
       );
       return;
     }
@@ -61,13 +61,13 @@ class SignUpPageState extends State<SignUpPage> {
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Failed to register")),
+          const SnackBar(content: Text("Failed to register"),duration: Duration(seconds: 1),),
         );
       }
     } catch (e) {
       print("Registration error: $e");
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Something went wrong")),
+        const SnackBar(content: Text("Something went wrong"),duration: Duration(seconds: 1),),
       );
     }
   }

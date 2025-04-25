@@ -60,6 +60,13 @@ class _ShopPageState extends State<ShopPage> {
           "This item lets you delete any number you choose, and boom—they’re all gone in a flash. \n\n💥💨 No trace left, just clean digits and clean plays. Use it wisely, bro… this one’s pure chaos control! 🧠🧹",
       "points": 100,
     },
+    // {
+    //   "name": "Test",
+    //   "icon": Icons.table_bar,
+    //   "description":
+    //       "Test test test test",
+    //   "points": 0,
+    // },
   ];
 
   Future<void> saveOwnedThemes(List<String> owned) async {
@@ -421,6 +428,7 @@ class _ShopPageState extends State<ShopPage> {
                                     content: Text(
                                       "You already have max $name items.",
                                     ),
+                                    duration: Duration(seconds: 1),
                                   ),
                                 );
                                 return;
@@ -433,6 +441,7 @@ class _ShopPageState extends State<ShopPage> {
                                     content: Text(
                                       "Not enough points to buy $name.",
                                     ),
+                                    duration: Duration(seconds: 1),
                                   ),
                                 );
                                 return;
@@ -449,7 +458,10 @@ class _ShopPageState extends State<ShopPage> {
                               loadItem();
           
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("$name purchased!")),
+                                SnackBar(
+                                  content: Text("$name purchased!"),
+                                  duration: Duration(seconds: 1),
+                                  ),
                               );
                             } else {
                               final theme = themes[selectedThemeIndex];
@@ -463,6 +475,7 @@ class _ShopPageState extends State<ShopPage> {
                                       content: Text(
                                         "Not enough points to buy $name theme.",
                                       ),
+                                      duration: Duration(seconds: 1),
                                     ),
                                   );
                                   return;
@@ -480,7 +493,10 @@ class _ShopPageState extends State<ShopPage> {
                                 });
           
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("$name theme purchased!")),
+                                  SnackBar(
+                                    content: Text("$name theme purchased!"),
+                                    duration: Duration(seconds: 1),
+                                    ),
                                 );
                               } else {
                                 // Already owned, equip it
@@ -490,7 +506,10 @@ class _ShopPageState extends State<ShopPage> {
                                 ).changeTheme(theme["id"]);
           
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("$name theme equipped!")),
+                                  SnackBar(
+                                    content: Text("$name theme equipped!"),
+                                    duration: Duration(seconds: 1),
+                                    ),
                                 );
                               }
                             }
