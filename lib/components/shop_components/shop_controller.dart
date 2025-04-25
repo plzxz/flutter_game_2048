@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'shop_item.dart';
 import 'shop_theme.dart';
+import 'package:http/http.dart' as http;
 
 class ShopController extends ChangeNotifier {
   int points = 0;
@@ -31,6 +34,12 @@ class ShopController extends ChangeNotifier {
       icon: Icons.delete_forever,
       description: "Delete a number. Chaos reigns.",
       points: 100,
+    ),
+    ShopItem(
+      name: "rebirth",
+      icon: Icons.refresh,
+      description: "Trade your score for points and start fresh. No cost. One-time use.",
+      points: 0,
     ),
   ];
 
@@ -100,6 +109,12 @@ class ShopController extends ChangeNotifier {
   Future<void> buyItem(int index) async {
     final prefs = await SharedPreferences.getInstance();
     final item = items[index];
+
+    if (item.name == "rebirth") {
+      await _useRebirth(prefs);
+      return;
+    }
+
     if (points < item.points) return;
 
     int count = getItemCount(item.name);
@@ -135,6 +150,25 @@ class ShopController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> _useRebirth(SharedPreferences prefs) async {
+    final username = prefs.getString("username");
+
+    if (username == null) {
+      throw Exception("Username not found in SharedPreferences");
+    }
+
+    //Get score from server
+    final int score = await fetchScore(username);
+    //Add to local points
+    points += score;
+    await prefs.setInt("points", points);
+
+    //Reset server score
+    await resetScore(username);
+
+    notifyListeners();
+  }
+
   void selectTab(int tab) {
     selectedTab = tab;
     notifyListeners();
@@ -148,5 +182,28 @@ class ShopController extends ChangeNotifier {
   void selectTheme(int index) {
     selectedThemeIndex = index;
     notifyListeners();
+  }
+
+  Future<int> fetchScore(String username) async {
+    final response = await http.get(Uri.parse('https://2048-api.vercel.app/score/$username'));
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['score'] ?? 0;
+    } else {
+      throw Exception('Failed to fetch score: ${response.statusCode}');
+    }
+  }
+
+  Future<void> resetScore(String username) async {
+    final response = await http.post(
+      Uri.parse('https://2048-api.vercel.app/reset-score'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({'username': username}),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to reset score: ${response.statusCode}');
+    }
   }
 }

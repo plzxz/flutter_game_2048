@@ -29,6 +29,7 @@ class ShopDetailPanel extends StatelessWidget {
                   Text(item.name,
                       style: TextStyle(fontWeight: FontWeight.bold, color: textColor)),
                   const SizedBox(width: 10),
+                  if (item.name != "rebirth")
                   Text("owned: $ownedItemCount",
                       style: TextStyle(fontSize: 12, color: textColor)),
                 ],
