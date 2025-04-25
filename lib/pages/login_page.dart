@@ -28,7 +28,7 @@ class LoginPageState extends State<LoginPage> {
     final password = passwordController.text;
 
 
-    final isValid = await checkUsernamePassword(username, password);
+    final bool isValid = await checkUsernamePassword(username, password);
     if (!isValid) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
@@ -59,7 +59,13 @@ class LoginPageState extends State<LoginPage> {
         body: json.encode({"username": username, "password": password}),
       );
 
-      return response.statusCode == 200;
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        return data['valid'] == true;
+      } else {
+        print("Server responded with status: ${response.statusCode}");
+        return false;
+      }
     } catch (e) {
       print("Login error: $e");
       return false;
