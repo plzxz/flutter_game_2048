@@ -53,7 +53,7 @@ class GamePageState extends State<GamePage>
   List<List<Tile>> get gridCols =>
       List.generate(4, (x) => List.generate(4, (y) => grid[y][x]));
 
-  late Timer aiTimer;
+  // late Timer aiTimer;
   int score = 0;
   int points = 0;
   List<int> scoreHistory = [];

@@ -85,7 +85,7 @@ class SignUpPageState extends State<SignUpPage> {
       }
     } catch (e) {
       print("Error checking username: $e");
-      return true; // Fail-safe: if error, act as if username exists to prevent bad data
+      return true;
     }
   }
 
