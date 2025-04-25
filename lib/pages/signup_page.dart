@@ -110,9 +110,9 @@ class SignUpPageState extends State<SignUpPage> {
             
                 const SizedBox(height: 30),
             
-                // welcome back, you've been missed!
+                // 
                 Text(
-                  'Welcome back',
+                  'Welcome',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 16,
