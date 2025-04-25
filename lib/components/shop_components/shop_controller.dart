@@ -160,7 +160,7 @@ class ShopController extends ChangeNotifier {
     //Get score from server
     final int score = await fetchScore(username);
     //Add to local points
-    points += (score ~/ 8);
+    points += (score ~/ 5);
     await prefs.setInt("points", points);
 
     //Reset server score
