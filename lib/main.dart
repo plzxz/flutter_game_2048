@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_game_2048/pages/credit.dart';
-import 'package:flutter_game_2048/pages/game_page.dart';
+import 'package:flutter_game_2048/pages/game_page_proto.dart';
 import 'package:flutter_game_2048/pages/leaderBoard_page.dart';
 import 'package:flutter_game_2048/pages/shop_page.dart';
 import 'package:flutter_game_2048/pages/splash_page.dart';

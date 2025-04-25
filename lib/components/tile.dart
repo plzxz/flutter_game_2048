@@ -193,16 +193,16 @@ class Swiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GestureDetector(
     onVerticalDragEnd: (details) {
-      if (details.velocity.pixelsPerSecond.dy < -250) {
+      if (details.velocity.pixelsPerSecond.dy < -50) {
         up();
-      } else if (details.velocity.pixelsPerSecond.dy > 250) {
+      } else if (details.velocity.pixelsPerSecond.dy > 50) {
         down();
       }
     },
     onHorizontalDragEnd: (details) {
-      if (details.velocity.pixelsPerSecond.dx < -250) {
+      if (details.velocity.pixelsPerSecond.dx < -50) {
         left();
-      } else if (details.velocity.pixelsPerSecond.dx > 250) {
+      } else if (details.velocity.pixelsPerSecond.dx > 50) {
         right();
       }
     },

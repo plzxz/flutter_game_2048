@@ -343,6 +343,7 @@ class GamePageState extends State<GamePage>
     prefs.setInt('score', score);
   }
 
+  //use item
   void onTileTap(Tile tile) {
     if (tile.value == 0) return;
 
@@ -394,6 +395,7 @@ class GamePageState extends State<GamePage>
     }
   }
 
+
   void undoMove() {
     GameState previousState = gameStates.removeLast();
     bool Function() mergeFn;
@@ -442,6 +444,7 @@ class GamePageState extends State<GamePage>
         break;
     }
 
+    //check merge
     bool _canMerge(List<List<Tile>> testGrid) {
       for (var row in testGrid) {
         for (int i = 0; i < row.length - 1; i++) {
@@ -453,6 +456,7 @@ class GamePageState extends State<GamePage>
       return false;
     }
 
+    //check swap
     bool canSwipe() {
       return _canMerge(grid) ||
           _canMerge(grid.map((e) => e.reversed.toList()).toList()) ||
@@ -530,6 +534,7 @@ class GamePageState extends State<GamePage>
     return didChange;
   }
 
+  //add tile
   void addNewTiles(List<int> values) {
     List<Tile> empty = gridTiles.where((t) => t.value == 0).toList();
     empty.shuffle();
@@ -538,6 +543,7 @@ class GamePageState extends State<GamePage>
     }
   }
 
+  //restart
   void setupNewGame() {
     setState(() {
       int gainedPoints = score ~/ 10;

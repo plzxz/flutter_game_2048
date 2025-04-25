@@ -58,7 +58,7 @@ class ShopController extends ChangeNotifier {
       points: 500,
     ),
     ShopThemeModel(
-      name: "Blue",
+      name: "Ice",
       smallImage: Colors.blue,
       image: 'assets/images/blue.png',
       id: 3,
